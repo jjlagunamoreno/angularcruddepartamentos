@@ -1,0 +1,21 @@
+<div style="padding: 5%;">
+    <h1>Home departamentos</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id departamento</th>
+                <th>Nombre</th>
+                <th>Localidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (dept of departamentos; track dept){
+            <tr>
+                <td>{{dept.idDepartamento}}</td>
+                <td>{{dept.nombre}}</td>
+                <td>{{dept.localidad}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
