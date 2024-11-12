@@ -9,13 +9,17 @@ import { MenucomponentComponent } from './components/menucomponent/menucomponent
 import { HomecomponentComponent } from './components/homecomponent/homecomponent.component';
 import { ServiceDepartamentos } from './services/service.departamentos'; //AGREGAMOS FUNCIONALIDAD PARA SERVICIO DEPARTAMENTOS
 import { CreateComponent } from './components/create/create.component';
+import { DetailsComponent } from './components/details/details.component';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenucomponentComponent,
     HomecomponentComponent,
-    CreateComponent
+    CreateComponent,
+    DetailsComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

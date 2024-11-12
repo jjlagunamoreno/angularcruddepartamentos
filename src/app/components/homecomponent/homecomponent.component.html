@@ -6,6 +6,7 @@
                 <th>Id departamento</th>
                 <th>Nombre</th>
                 <th>Localidad</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -14,6 +15,19 @@
                 <td>{{dept.idDepartamento}}</td>
                 <td>{{dept.nombre}}</td>
                 <td>{{dept.localidad}}</td>
+                <td>
+                    <!-- 1) opción
+                    <a [routerLink]="['/details/' + dept.idDepartamento + '/' + dept.nombre + '/' + dept.localidad]">Details</a> -->
+                    <!-- 2) opción-->
+                    <a [routerLink]="['/details', dept.idDepartamento, dept.nombre, dept.localidad]"
+                        class="btn btn-outline-dark">
+                        Details
+                    </a>
+                    <a [routerLink]="['/edit', dept.idDepartamento]" class="btn btn-outline-info"
+                        style="margin-left: 2%;">
+                        Edit
+                    </a>
+                </td>
             </tr>
             }
         </tbody>
