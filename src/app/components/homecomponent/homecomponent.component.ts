@@ -11,9 +11,17 @@ import { Departamento } from '../../models/departamento';
 export class HomecomponentComponent implements OnInit {
   public departamentos!: Array<Departamento>;
   constructor(private _service: ServiceDepartamentos) { }
-  ngOnInit(): void {
+  deleteDepartamento(id: number): void {
+    this._service.deleteDepartamento(id.toString()).subscribe(Response => {
+      this.loadDepartamentos();
+    })
+  }
+  loadDepartamentos() {
     this._service.getDepartamentos().subscribe(response => {
       this.departamentos = response;
     })
+  }
+  ngOnInit(): void {
+    this.loadDepartamentos();
   }
 }

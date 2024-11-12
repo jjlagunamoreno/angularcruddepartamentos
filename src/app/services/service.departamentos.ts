@@ -12,29 +12,35 @@ export class ServiceDepartamentos {
         let url = environment.apiUrlDepartamentos + request;
         return this._http.get(url);
     }
-    //VOY A RECIBIR DIRECTAMENTE EL OBJETO EN EL METODO DE INSERTAR
+    // VOY A RECIBIR DIRECTAMENTE EL OBJETO EN EL METODO DE INSERTAR
     insertDepartamento(departamento: Departamento): Observable<any> {
-        //ESTO ES COMO JQUERY CONVERTIR UN OBJETO A JSON
+        // ESTO ES COMO JQUERY CONVERTIR UN OBJETO A JSON
         let json = JSON.stringify(departamento);
-        //DEBEMOS INDICAR EN LA PETICIÓN QUE TIPO DE FORMATO TIENE EL OBJETO A ENVIAR
+        // DEBEMOS INDICAR EN LA PETICIÓN QUE TIPO DE FORMATO TIENE EL OBJETO A ENVIAR
         let header = new HttpHeaders();
         header = header.set("Content-type", "application/json");
         let request = "api/departamentos";
         let url = environment.apiUrlDepartamentos + request;
         return this._http.post(url, json, { headers: header });
     }
-    //BUSCAMOS EL DEPARTAMENTO POR EL ID DE ESTE
+    // BUSCAMOS EL DEPARTAMENTO POR EL ID DE ESTE
     findDepartamento(idDepartamento: string): Observable<any> {
         let request = "api/departamentos/" + idDepartamento;
         let url = environment.apiUrlDepartamentos + request;
         return this._http.get(url);
     }
-    //INSERTAMOS LOS CAMBIOS DEL DEPARTAMENTO
+    // INSERTAMOS LOS CAMBIOS DEL DEPARTAMENTO
     updateDepartamento(departamento: Departamento): Observable<any> {
         let json = JSON.stringify(departamento);
         let header = new HttpHeaders().set("Content-type", "application/json");
         let request = "api/departamentos";
         let url = environment.apiUrlDepartamentos + request;
         return this._http.put(url, json, { headers: header });
+    }
+    // MÉTODO BORRAR DEPARTAMENTOS POR ID
+    deleteDepartamento(idDepartamento: string): Observable<any> {
+        let request = "api/departamentos/" + idDepartamento;
+        let url = environment.apiUrlDepartamentos + request;
+        return this._http.delete(url);
     }
 }
